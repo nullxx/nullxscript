@@ -1,21 +1,12 @@
 //
-//  main.c
-//  nullxscript
+//  headers.c
+//  CODE-2 C
 //
-//  Created by Jon Lara Trigo on 18/01/2020.
+//  Created by Jon Lara Trigo on 19/01/2020.
 //  Copyright © 2020 Jon Lara Trigo. All rights reserved.
 //
-
-#include <stdio.h>
-#include <string.h>
-#include "memoria.h"
-#include <unistd.h> // sleep
-#include <stdlib.h>
-#include "tools.h"
-
-
+#include "main.h"
 registro *memoria;
-
 
 char *mainProgress(int action, int r, char setString[4]){
     registro registroOrigin = getRegistro(r);
@@ -25,22 +16,21 @@ char *mainProgress(int action, int r, char setString[4]){
                     // get registro valor,
                     char result[10000];
                     sprintf(result, "{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroOrigin.alias, registroOrigin.valor, &registroOrigin.valor);
-                    //printf("{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroOrigin.alias, registroOrigin.valor, &registroOrigin.valor);
                     return result;
                     break;
                 }
         case 1:
                 {
                     // set registro valor
-                    // scanf("%s", setString);
                     if (isCharLengthValid(setString) == 1){
                         registro registroResult = setRegistroValue(r, setString);
-                        //printf("{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroResult.alias, registroResult.valor, &registroResult.valor);
                         char result[10000];
                         sprintf(result, "{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroResult.alias, registroResult.valor, &registroResult.valor);
                         return result;
                     }else{
-                        printf("{\"code\": 0,\"mode\": %d,\"alias\": NULL, \"valor\": NULL}\n", action);
+                        char result[10000];
+                        sprintf(result, "{\"code\": 0,\"mode\": %d,\"alias\": NULL, \"valor\": NULL}\n", action);
+                        return result;
                     }
                     break;
                 }
@@ -64,14 +54,7 @@ char *getMemoria(registro *memoria, int intpos){
 }
 
 
-
-int main(int argc, const char * argv[]) {
-    srand(time(NULL));
-    
-    
-    
-    
-    
+void allocateMemory(){
     int MAX_MEMORY = 61439;
 
     memoria = calloc(MAX_MEMORY,sizeof(registro));
@@ -80,74 +63,25 @@ int main(int argc, const char * argv[]) {
         sprintf(hex, "%004x", getRandom(0, MAX_MEMORY));
         memoria[i] = setSingleValue(memoria[i], hex);
     }
-    //printf("Memoria asignada\n");
-    
-    
-    
-    
-    
-   /*
-    int action = -1, r = -1;
-    int funcionando = 1;
-    while (funcionando == 1){
-        printf("Introduce tu comando: ");
-        scanf("%d %d", &action, &r);
-        if (isEntryValid(r, action) == 1){
-            mainProgress(action, r);
-        }else{
-            printf("{\"code\": 0,\"mode\": %d,\"alias\": NULL, \"valor\": NULL}\n", action);
-        }
-        
-        
-        if (action == -1){
-            funcionando = 0;
-        }
-        action = -1; r = 0; // vuelvo a setearlas a default
-    }
-    */
-
+    printf("Memoria asignada\n");
+}
+char *getR(int r){ // action = 0
+    int action = 0;
+    return mainProgress(action, r, "");
+}
+int getNumber(){
+    return 1;
+}
+char *setR(int r, char str[4]){ // action = 1
+    int action = 1;
+    return mainProgress(action, r, str);
+}
+char *getMem(int r){ // action = 2
     int action = 2;
-    int r = 1;
-    
-    
-    if (isEntryValid(r, action) == 1){
-        printf("%s", mainProgress(action, r, "1234"));
-    }else{
-        printf("{\"code\": 0,\"mode\": %d,\"alias\": NULL, \"valor\": NULL}\n", action);
-    }
-    
-    return 0;
+    return mainProgress(action, r, "");
 }
 
 
-
-
-
-/*#include <stdlib.h>
-#include <OpenGL/gl.h>
-#include <GLUT/glut.h>
-
-void display () {
-
-    glClearColor ( 0, 0, 0, 0 );
-
-    glClear ( GL_COLOR_BUFFER_BIT );
-
-    glLoadIdentity ();
-
-    glFlush ();
-
+int main(){
+    printf("Project is ready to implement\n");
 }
-
-int main ( int argc, char** argv ) {
-    glutInit ( &argc, argv );
-    glutInitDisplayMode ( GLUT_SINGLE );
-    glutInitWindowSize ( 640, 480 );
-    glutInitWindowPosition ( 100, 100 );
-    glutCreateWindow ( "CODE-2" );
-    glutDisplayFunc ( display );
-    glutMainLoop ();
-    
-    return 0;
-
- }*/

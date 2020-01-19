@@ -33,6 +33,7 @@
 		697486CD23D4374400F6FCF4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		697486CF23D4378500F6FCF4 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		697486D223D46F3200F6FCF4 /* tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tools.h; sourceTree = "<group>"; };
+		69B950DA23D4E63F007E1A36 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				697486BC23D289C900F6FCF4 /* main.c */,
+				69B950DA23D4E63F007E1A36 /* main.h */,
 				697486C423D370DE00F6FCF4 /* registro.h */,
 				697486C623D37B4B00F6FCF4 /* memoria.h */,
 				697486D223D46F3200F6FCF4 /* tools.h */,

@@ -7,8 +7,8 @@
 //
 #include "registro.h"
 
-registro registro0 = {.alias = "r0", .valor = "FFFF"};
-registro registro1 = {.alias = "r1", .valor = "000F"};
+registro registro0 = {.alias = "r0", .valor = "0000"};
+registro registro1 = {.alias = "r1", .valor = "0000"};
 registro registro2 = {.alias = "r2", .valor = "0000"};
 registro registro3 = {.alias = "r3", .valor = "0000"};
 registro registro4 = {.alias = "r4", .valor = "0000"};
