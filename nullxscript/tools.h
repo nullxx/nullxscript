@@ -8,8 +8,9 @@
 #include <time.h>
 
 int isEntryValid(int entry, int mode){
+    int NUM_OF_REG = 26;
     if (mode < 2){
-        if (entry >= 0 && entry <= 15){
+        if (entry >= 0 && entry <= NUM_OF_REG){
             return 1;
         }else{
             return 0;
@@ -21,7 +22,6 @@ int isEntryValid(int entry, int mode){
             return 0;
         }
     }
-    
 }
 int isCharLengthValid(char valor[]){
     if (strlen(valor) == 4){

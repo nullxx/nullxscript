@@ -24,6 +24,17 @@ registro registroD = {.alias = "rD", .valor = "0000"};
 registro registroE = {.alias = "rE", .valor = "0000"};
 registro registroF = {.alias = "rF", .valor = "0000"};
 
+
+registro addressRegister = {.alias = "AR", .valor = "F7AB"};
+registro dataRegister = {.alias = "DR", .valor = "34AB"};
+registro instructionRegister = {.alias = "IR", .valor = "4A61"};
+registro programCounter = {.alias = "PC", .valor = "E60A"};
+
+registro input1 = {.alias = "IP1", .valor = "3043"};
+registro input2 = {.alias = "IP2", .valor = "8E91"};
+registro output1 = {.alias = "OP1", .valor = "7940"};
+registro output2 = {.alias = "OP2", .valor = "07E5"};
+
 registro getRegistro(int re){
     switch (re) {
         case 0:
@@ -58,6 +69,28 @@ registro getRegistro(int re){
             return registroE;
         case 15:
             return registroF;
+        case 16:
+            return addressRegister;
+        case 17:
+            return dataRegister;
+        case 18:
+            return instructionRegister;
+        case 19:
+            return programCounter;
+        case 20:
+            return input1;
+        case 21:
+            return output1;
+        case 22:
+            return output2;
+        case 23:
+            return input1;
+        case 24:
+            return input2;
+        case 25:
+            return output1;
+        case 26:
+            return output2;
         default:
             return registro0;
     }
@@ -166,6 +199,72 @@ registro setRegistroValue(int re, char valor[4]){
         {
             registroF = setSingleValue(registroF, valor);
             result = registroF;
+            break;
+        }
+        case 16:
+        {
+            addressRegister = setSingleValue(addressRegister, valor);
+            result = addressRegister;
+            break;
+        }
+        case 17:
+        {
+            dataRegister = setSingleValue(dataRegister, valor);
+            result = dataRegister;
+            break;
+        }
+        case 18:
+        {
+            instructionRegister = setSingleValue(instructionRegister, valor);
+            result = instructionRegister;
+            break;
+        }
+        case 19:
+        {
+            programCounter = setSingleValue(programCounter, valor);
+            result = programCounter;
+            break;
+        }
+        case 20:
+        {
+            input1 = setSingleValue(input1, valor);
+            result = input1;
+            break;
+        }
+        case 21:
+        {
+            output1 = setSingleValue(output1, valor);
+            result = output1;
+            break;
+        }
+        case 22:
+        {
+            output2 = setSingleValue(output2, valor);
+            result = output2;
+            break;
+        }
+        case 23:
+        {
+            input1 = setSingleValue(input1, valor);
+            result = input1;
+            break;
+        }
+        case 24:
+        {
+            input2 = setSingleValue(input2, valor);
+            result = input2;
+            break;
+        }
+        case 25:
+        {
+            output1 = setSingleValue(output1, valor);
+            result = output1;
+            break;
+        }
+        case 26:
+        {
+            output2 = setSingleValue(output2, valor);
+            result = output2;
             break;
         }
         default:
