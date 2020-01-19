@@ -69,63 +69,105 @@ registro setSingleValue(registro registro, char valor[4]){
     }
     return registro;
 }
-registro setSingleAlias(registro registro, char alias[2]){
-    for (int i = 0; i <strlen(alias); i++) {
-        registro.alias[i] = &alias[i];
-    }
-    return registro;
-}
 registro setRegistroValue(int re, char valor[4]){
     registro result;
     switch (re) {
         case 0:
+        {
             registro0 = setSingleValue(registro0, valor);
             result = registro0;
+            break;
+        }
         case 1:
+        {
             registro1 = setSingleValue(registro1, valor);
             result = registro1;
+            break;
+        }
         case 2:
+        {
             registro2 = setSingleValue(registro2, valor);
             result = registro2;
+            break;
+        }
         case 3:
+        {
             registro3 = setSingleValue(registro3, valor);
             result = registro3;
+            break;
+        }
         case 4:
+        {
             registro4 = setSingleValue(registro4, valor);
             result = registro4;
+            break;
+        }
         case 5:
+        {
             registro5 = setSingleValue(registro5, valor);
             result = registro5;
+            break;
+        }
         case 6:
+        {
             registro6 = setSingleValue(registro6, valor);
             result = registro6;
+            break;
+        }
         case 7:
+        {
             registro7 = setSingleValue(registro7, valor);
             result = registro7;
+            break;
+        }
         case 8:
+        {
             registro8 = setSingleValue(registro8, valor);
             result = registro8;
+            break;
+        }
         case 9:
+        {
             registro9 = setSingleValue(registro9, valor);
             result = registro9;
+            break;
+        }
         case 10:
+        {
             registroA = setSingleValue(registroA, valor);
             result = registroA;
+            break;
+        }
         case 11:
+        {
             registroB = setSingleValue(registroB, valor);
             result = registroB;
+            break;
+        }
         case 12:
+        {
             registroC = setSingleValue(registroC, valor);
             result = registroC;
+            break;
+        }
         case 13:
+        {
             registroD = setSingleValue(registroD, valor);
             result = registroD;
+            break;
+        }
         case 14:
+        {
             registroE = setSingleValue(registroE, valor);
             result = registroE;
+            break;
+        }
         case 15:
+        {
             registroF = setSingleValue(registroF, valor);
             result = registroF;
+            break;
+        }
         default:
             return registro0;
     }

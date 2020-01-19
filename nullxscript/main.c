@@ -17,26 +17,28 @@
 registro *memoria;
 
 
-void mainProgress(int action, int r){
-    char setString[4];
+char *mainProgress(int action, int r, char setString[4]){
     registro registroOrigin = getRegistro(r);
-    
-    
-    
     switch (action) {
         case 0:
                 {
-                    // get registro valor
-                    printf("{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroOrigin.alias, registroOrigin.valor, &registroOrigin.valor);
+                    // get registro valor,
+                    char result[10000];
+                    sprintf(result, "{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroOrigin.alias, registroOrigin.valor, &registroOrigin.valor);
+                    //printf("{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroOrigin.alias, registroOrigin.valor, &registroOrigin.valor);
+                    return result;
                     break;
                 }
         case 1:
                 {
                     // set registro valor
-                    scanf("%s", setString);
+                    // scanf("%s", setString);
                     if (isCharLengthValid(setString) == 1){
                         registro registroResult = setRegistroValue(r, setString);
-                        printf("{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroResult.alias, registroResult.valor, &registroResult.valor);
+                        //printf("{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroResult.alias, registroResult.valor, &registroResult.valor);
+                        char result[10000];
+                        sprintf(result, "{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroResult.alias, registroResult.valor, &registroResult.valor);
+                        return result;
                     }else{
                         printf("{\"code\": 0,\"mode\": %d,\"alias\": NULL, \"valor\": NULL}\n", action);
                     }
@@ -45,16 +47,24 @@ void mainProgress(int action, int r){
         case 2:
         {
             // get memoria
-            printf("{\"code\": 1,\"mode\": %d,\"alias\": \"mem%d\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, r, memoria[r].valor, &memoria[r].valor);
+            //printf("{\"code\": 1,\"mode\": %d,\"alias\": \"mem%d\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, r, memoria[r].valor, &memoria[r].valor);
+            char result[10000];
+            sprintf(result, "{\"code\": 1,\"mode\": %d,\"alias\": \"mem%d\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, r, memoria[r].valor, &memoria[r].valor);
+            return result;
+            
             break;
         }
         default:
-            break;
+        {break;}
     }
+    return "";
 }
 char *getMemoria(registro *memoria, int intpos){
     return memoria[intpos].valor;
 }
+
+
+
 int main(int argc, const char * argv[]) {
     srand(time(NULL));
     
@@ -76,7 +86,7 @@ int main(int argc, const char * argv[]) {
     
     
     
-    
+   /*
     int action = -1, r = -1;
     int funcionando = 1;
     while (funcionando == 1){
@@ -94,9 +104,24 @@ int main(int argc, const char * argv[]) {
         }
         action = -1; r = 0; // vuelvo a setearlas a default
     }
+    */
 
+    int action = 2;
+    int r = 1;
+    
+    
+    if (isEntryValid(r, action) == 1){
+        printf("%s", mainProgress(action, r, "1234"));
+    }else{
+        printf("{\"code\": 0,\"mode\": %d,\"alias\": NULL, \"valor\": NULL}\n", action);
+    }
+    
     return 0;
 }
+
+
+
+
 
 /*#include <stdlib.h>
 #include <OpenGL/gl.h>
