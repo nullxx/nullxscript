@@ -22,7 +22,7 @@ char *mainProgress(int action, int r, char setString[4]){
         case 1:
                 {
                     // set registro valor
-                    if (isCharLengthValid(setString) == 1){
+                    if (isCharLengthValid(setString) == 1 && isEntryValid(r, action)){
                         registro registroResult = setRegistroValue(r, setString);
                         char result[10000];
                         sprintf(result, "{\"code\": 1,\"mode\": %d,\"alias\": \"%s\", \"valor\": \"%s\", \"address\": \"%p\"}\n", action, *registroResult.alias, registroResult.valor, &registroResult.valor);
