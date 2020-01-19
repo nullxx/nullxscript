@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		697486BD23D289C900F6FCF4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 697486BC23D289C900F6FCF4 /* main.c */; };
+		697486CE23D4374400F6FCF4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697486CD23D4374400F6FCF4 /* OpenGL.framework */; };
+		697486D023D4378500F6FCF4 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 697486CF23D4378500F6FCF4 /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,12 @@
 /* Begin PBXFileReference section */
 		697486B923D289C900F6FCF4 /* nullxscript */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nullxscript; sourceTree = BUILT_PRODUCTS_DIR; };
 		697486BC23D289C900F6FCF4 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		697486C423D370DE00F6FCF4 /* registro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = registro.h; sourceTree = "<group>"; };
+		697486C623D37B4B00F6FCF4 /* memoria.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memoria.h; sourceTree = "<group>"; };
+		697486C823D4364900F6FCF4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		697486CD23D4374400F6FCF4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		697486CF23D4378500F6FCF4 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		697486D223D46F3200F6FCF4 /* tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tools.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				697486D023D4378500F6FCF4 /* GLUT.framework in Frameworks */,
+				697486CE23D4374400F6FCF4 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +53,7 @@
 			children = (
 				697486BB23D289C900F6FCF4 /* nullxscript */,
 				697486BA23D289C900F6FCF4 /* Products */,
+				697486C723D4364900F6FCF4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +69,21 @@
 			isa = PBXGroup;
 			children = (
 				697486BC23D289C900F6FCF4 /* main.c */,
+				697486C423D370DE00F6FCF4 /* registro.h */,
+				697486C623D37B4B00F6FCF4 /* memoria.h */,
+				697486D223D46F3200F6FCF4 /* tools.h */,
 			);
 			path = nullxscript;
+			sourceTree = "<group>";
+		};
+		697486C723D4364900F6FCF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				697486CF23D4378500F6FCF4 /* GLUT.framework */,
+				697486CD23D4374400F6FCF4 /* OpenGL.framework */,
+				697486C823D4364900F6FCF4 /* Cocoa.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
